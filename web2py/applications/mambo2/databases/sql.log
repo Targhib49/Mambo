@@ -1,0 +1,2502 @@
+timestamp: 2025-01-07T09:17:50.562835
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(128),
+    "last_name" CHAR(128),
+    "email" CHAR(512),
+    "password" CHAR(512),
+    "registration_key" CHAR(512),
+    "reset_password_key" CHAR(512),
+    "registration_id" CHAR(512)
+);
+success!
+timestamp: 2025-01-07T09:17:50.641001
+CREATE TABLE "auth_group"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "role" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2025-01-07T09:17:50.703986
+CREATE TABLE "auth_membership"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE ON UPDATE CASCADE  
+);
+success!
+timestamp: 2025-01-07T09:17:50.798678
+CREATE TABLE "auth_permission"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "name" CHAR(512),
+    "table_name" CHAR(512),
+    "record_id" INTEGER
+);
+success!
+timestamp: 2025-01-07T09:17:50.861630
+CREATE TABLE "auth_event"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "time_stamp" TIMESTAMP,
+    "client_ip" CHAR(512),
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "origin" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2025-01-07T09:17:50.955866
+CREATE TABLE "auth_cas"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "created_on" TIMESTAMP,
+    "service" CHAR(512),
+    "ticket" CHAR(512),
+    "renew" CHAR(1)
+);
+success!
+timestamp: 2025-01-07T09:17:51.018405
+CREATE TABLE "m_paket"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "nama_paket" CHAR(512),
+    "harga_paket" INTEGER
+);
+success!
+timestamp: 2025-01-07T09:17:51.080834
+CREATE TABLE "m_sekolah"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "nama_sekolah" CHAR(512),
+    "alamat" CHAR(512)
+);
+success!
+success!
+timestamp: 2025-01-07T09:35:01.791556
+CREATE TABLE "m_supplier"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "nama_supplier" CHAR(512),
+    "alamat" CHAR(512)
+);
+success!
+timestamp: 2025-01-07T09:35:01.901413
+CREATE TABLE "t_paket_menu"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_paket" CHAR(512),
+    "menu" CHAR(512),
+    "supplier" CHAR(512)
+);
+success!
+timestamp: 2025-01-07T09:35:01.963951
+CREATE TABLE "t_sekolah_kepala"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_sekolah" CHAR(512),
+    "id_kepala_sekolah" CHAR(512),
+    "time_stamp" TIMESTAMP
+);
+success!
+timestamp: 2025-01-07T09:35:02.073809
+CREATE TABLE "t_pengajuan_paket"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_paket" CHAR(512),
+    "jumlah" INTEGER,
+    "id_pengaju" CHAR(512),
+    "id_approver" CHAR(512),
+    "time_stamp" TIMESTAMP
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-07T09:58:51.140490
+CREATE TABLE "m_satuan_menu"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "nama_satuan" CHAR(512)
+);
+success!
+timestamp: 2025-01-07T09:58:51.196377
+CREATE TABLE "m_satuan_supplier"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "nama_satuan" CHAR(512)
+);
+success!
+timestamp: 2025-01-07T09:58:51.291061
+CREATE TABLE "map_region_sekolah"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "nama_daerah" CHAR(512),
+    "id_sekolah" CHAR(512),
+    "id_kepala_sekolah" CHAR(512),
+    "id_disdik" CHAR(512)
+);
+success!
+timestamp: 2025-01-07T09:58:51.369704
+ALTER TABLE "t_paket_menu" ADD "id_m_satuan_menu" CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-07T10:26:43.028419
+CREATE TABLE "t_translate_satuan"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_supplier" CHAR(512),
+    "id_satuan_menu" CHAR(512),
+    "id_satuan_supplier" CHAR(512)
+);
+success!
+timestamp: 2025-01-07T10:26:43.122606
+CREATE TABLE "t_harga_supplier"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_supplier" CHAR(512),
+    "nama_item" CHAR(512),
+    "harga" INTEGER,
+    "id_satuan_supplier" CHAR(512)
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-07T10:54:40.718955
+ALTER TABLE "t_harga_supplier" ADD "volume" INTEGER;
+success!
+timestamp: 2025-01-07T10:54:40.797525
+ALTER TABLE "t_paket_menu" ADD "id_supplier" CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-07T11:03:37.576834
+ALTER TABLE "m_paket" ADD "pagu_harga" INTEGER;
+success!
+timestamp: 2025-01-07T11:03:37.671050
+CREATE TABLE "m_vendor"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "nama_vendor" CHAR(512),
+    "alamat" CHAR(512)
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-07T11:37:20.070118
+CREATE TABLE "m_disdik"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "nama_disdik" CHAR(512),
+    "alamat" CHAR(512)
+);
+success!
+timestamp: 2025-01-07T11:37:20.148278
+ALTER TABLE "map_region_sekolah" ADD "time_stamp" TIMESTAMP;
+success!
+timestamp: 2025-01-07T11:37:20.226849
+CREATE TABLE "map_sekolah_kepala"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_sekolah" CHAR(512),
+    "id_kepala_sekolah" CHAR(512),
+    "time_stamp" TIMESTAMP
+);
+success!
+timestamp: 2025-01-07T11:37:20.289832
+CREATE TABLE "map_admin_disdik"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_disdik" CHAR(512),
+    "id_admin" CHAR(512),
+    "time_stamp" TIMESTAMP
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-07T11:47:03.065042
+CREATE TABLE "map_disdik_sekolah"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_sekolah" CHAR(512),
+    "id_disdik" CHAR(512),
+    "time_stamp" TIMESTAMP
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-07T12:32:33.243671
+ALTER TABLE "t_pengajuan_paket" ADD "time_stamp_setuju" TIMESTAMP;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-07T12:51:23.253781
+ALTER TABLE "t_pengajuan_paket" ADD "approve" CHAR(1);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-07T13:28:16.480777
+ALTER TABLE "t_pengajuan_paket" ADD "id_vendor" CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-07T13:39:38.362442
+CREATE TABLE "map_vendor_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_vendor" CHAR(512),
+    "id_user" CHAR(512)
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-07T14:07:01.695941
+CREATE TABLE "t_belanja_vendor_item"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_t_pengajuan_paket" CHAR(512),
+    "id_t_harga_supplier" CHAR(512)
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-07T14:28:31.266918
+CREATE TABLE "map_supplier_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_supplier" CHAR(512),
+    "id_user" CHAR(512)
+);
+success!
+success!
+success!
+timestamp: 2025-01-07T14:30:18.215164
+ALTER TABLE "t_harga_supplier" ADD "time_stamp" TIMESTAMP;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-13T13:16:57.385647
+CREATE TABLE "m_propinsi"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "propinsi" CHAR(512)
+);
+success!
+timestamp: 2025-01-13T13:16:57.636990
+CREATE TABLE "m_kabupaten_kota"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_propinsi" CHAR(512),
+    "kabupaten_kota" CHAR(512)
+);
+success!
+timestamp: 2025-01-13T13:16:57.872219
+CREATE TABLE "m_kecamatan"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_kabupaten_kota" CHAR(512),
+    "kecamatan" CHAR(512)
+);
+success!
+timestamp: 2025-01-13T13:16:58.107599
+CREATE TABLE "m_kelurahan_desa"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_kecamatan" CHAR(512),
+    "kelurahan_desa" CHAR(512),
+    "kode_pos" INTEGER
+);
+success!
+success!
+success!
+timestamp: 2025-01-13T13:17:49.966301
+CREATE TABLE "t_pemberian_paket"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_paket" CHAR(512),
+    "jumlah" INTEGER,
+    "id_tujuan" CHAR(512),
+    "id_user" CHAR(512),
+    "time_stamp" TIMESTAMP
+);
+success!
+timestamp: 2025-01-13T13:17:50.233374
+CREATE TABLE "t_tanda_terima_paket"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_t_pemberian_paket" CHAR(512),
+    "jumlah" INTEGER,
+    "id_user" CHAR(512),
+    "time_stamp" TIMESTAMP
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-13T13:28:20.324919
+ALTER TABLE "m_paket" ADD "time_stamp" TIMESTAMP;
+success!
+timestamp: 2025-01-13T13:28:20.560252
+ALTER TABLE "m_supplier" ADD "time_stamp" TIMESTAMP;
+success!
+timestamp: 2025-01-13T13:28:20.779897
+ALTER TABLE "map_supplier_user" ADD "time_stamp" TIMESTAMP;
+success!
+timestamp: 2025-01-13T13:28:21.000120
+ALTER TABLE "m_vendor" ADD "time_stamp" TIMESTAMP;
+success!
+timestamp: 2025-01-13T13:28:21.208761
+ALTER TABLE "map_vendor_user" ADD "time_stamp" TIMESTAMP;
+success!
+timestamp: 2025-01-13T13:28:21.502544
+ALTER TABLE "m_satuan_menu" ADD "time_stamp" TIMESTAMP;
+success!
+timestamp: 2025-01-13T13:28:21.848694
+ALTER TABLE "m_satuan_supplier" ADD "time_stamp" TIMESTAMP;
+success!
+timestamp: 2025-01-13T13:28:22.100078
+ALTER TABLE "m_sekolah" ADD "time_stamp" TIMESTAMP;
+success!
+timestamp: 2025-01-13T13:28:22.351510
+ALTER TABLE "m_disdik" ADD "time_stamp" TIMESTAMP;
+success!
+timestamp: 2025-01-13T13:28:22.555601
+ALTER TABLE "t_harga_supplier" ADD "deleted" CHAR(1);
+success!
+timestamp: 2025-01-13T13:28:22.807032
+ALTER TABLE "t_pengajuan_paket" ADD "deleted" CHAR(1);
+success!
+timestamp: 2025-01-13T13:28:23.137531
+ALTER TABLE "t_pemberian_paket" ADD "deleted" CHAR(1);
+success!
+timestamp: 2025-01-13T13:28:23.357244
+ALTER TABLE "t_tanda_terima_paket" ADD "deleted" CHAR(1);
+success!
+timestamp: 2025-01-13T13:28:23.608228
+ALTER TABLE "t_belanja_vendor_item" ADD "deleted" CHAR(1);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-13T13:45:27.151173
+ALTER TABLE "m_propinsi" ADD "deleted" CHAR(1);
+success!
+timestamp: 2025-01-13T13:45:27.387464
+ALTER TABLE "m_kabupaten_kota" ADD "deleted" CHAR(1);
+success!
+timestamp: 2025-01-13T13:45:27.638600
+ALTER TABLE "m_kecamatan" ADD "deleted" CHAR(1);
+success!
+timestamp: 2025-01-13T13:45:27.867834
+ALTER TABLE "m_kelurahan_desa" ADD "deleted" CHAR(1);
+success!
+timestamp: 2025-01-13T13:45:28.131876
+ALTER TABLE "m_paket" ADD "deleted" CHAR(1);
+success!
+timestamp: 2025-01-13T13:45:28.377232
+ALTER TABLE "m_supplier" ADD "deleted" CHAR(1);
+success!
+timestamp: 2025-01-13T13:45:28.612606
+ALTER TABLE "map_supplier_user" ADD "deleted" CHAR(1);
+success!
+timestamp: 2025-01-13T13:45:28.879623
+ALTER TABLE "m_vendor" ADD "deleted" CHAR(1);
+success!
+timestamp: 2025-01-13T13:45:29.133115
+ALTER TABLE "map_vendor_user" ADD "deleted" CHAR(1);
+success!
+timestamp: 2025-01-13T13:45:29.371884
+ALTER TABLE "m_satuan_menu" ADD "deleted" CHAR(1);
+success!
+timestamp: 2025-01-13T13:45:29.572473
+ALTER TABLE "m_satuan_supplier" ADD "deleted" CHAR(1);
+success!
+timestamp: 2025-01-13T13:45:29.822389
+ALTER TABLE "m_sekolah" ADD "deleted" CHAR(1);
+success!
+timestamp: 2025-01-13T13:45:30.042103
+ALTER TABLE "m_disdik" ADD "deleted" CHAR(1);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-13T14:04:01.396555
+ALTER TABLE "t_tanda_terima_paket" ADD "tanggal_terima" DATE;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-13T15:15:04.324849
+ALTER TABLE "t_pemberian_paket" ADD "sudah_diterima" CHAR(1);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-13T15:53:50.833351
+CREATE TABLE "t_laporan_masyarakat"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "uraian" TEXT,
+    "time_stamp" TIMESTAMP
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2025-01-16T15:50:10.619498
+ALTER TABLE "m_vendor" ADD "id_kelurahan_desa" INTEGER REFERENCES "m_kelurahan_desa" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ;
+timestamp: 2025-01-16T15:50:10.682462
+ALTER TABLE "m_vendor" ADD "id_kecamatan" INTEGER REFERENCES "m_kecamatan" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ;
+timestamp: 2025-01-16T15:50:10.745375
+ALTER TABLE "m_vendor" ADD "id_kabupaten_kota" INTEGER REFERENCES "m_kabupaten_kota" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ;
+timestamp: 2025-01-16T15:50:10.870896
+ALTER TABLE "m_vendor" ADD "id_propinsi" INTEGER REFERENCES "m_propinsi" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
